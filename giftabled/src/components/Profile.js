@@ -1,7 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Profile() {
-
+    const [name,setName]=useState();
+    const [parent,setParent]=useState();
+    const [relation,setRelation]=useState();
+    const [phone,setPhone]=useState();
+    const [gender,setGender]=useState();
+    const [bloodgroup,setBloodgroup]=useState();
+    const [dob,setDob]=useState();
+    const [ageofmother,setAgeofmother]=useState();
+    const [placeofdelivery,setPlaceofdelivery]=useState();
+    const [childstatus,setChildstatus]=useState();
+    const [exposed,setExposed]=useState();
+    const [delivery,setdelivery]=useState()
+    const [mi,setMi]=useState();
+    const [weight,setWeight]=useState();
+    const [breastfeed,setBreastfeed]=useState();
+    const [howlong,setHowlong]=useState();
+    const [nicu,setNicu]=useState();
+    const [address1,setAddress1]=useState();
+    const [address2,setAddress2]=useState();
+    const [city,setCity]=useState();
+    const [state,setState]=useState();
+    const [pincode,setPincode]=useState();
+    function Adddata(e)
+    {   e.preventDefault();
+        console.log(name,parent,relation,phone,gender,bloodgroup,dob,ageofmother,placeofdelivery,childstatus,exposed,delivery,mi,weight,breastfeed,nicu,address1,address2,city,state,pincode)
+    }
   return (
     <div>
         <div style={{textAlign:"center"}}>
@@ -9,396 +34,531 @@ function Profile() {
         </div>
 
       <div className="container my-3">
-        <form>
-          <div class="mb-3">
-            <label class="form-label">Name of child</label>
-            <input type="text" class="form-control" style={{ width: "50%" }} />
+        <form onSubmit={Adddata}>
+          <div className="mb-3">
+            <label className="form-label">Name of child</label>
+            <input type="text" className="form-control" style={{ width: "50%" }} onChange={(e)=>setName(e.target.value)
+            }/>
           </div>
-
+          <div className="mb-3" style={{ width: "50%" }}>
+            <label className="form-label">Name of the parent</label>
+            <input type="text" className="form-control" onChange={(e)=>setParent(e.target.value)
+            }/>
+          </div>
+          <div className="mb-3" style={{ width: "50%" }}>
+            <label className="form-label">Relationship</label>
+            <input type="text" className="form-control" onChange={(e)=>setRelation(e.target.value)
+            }/>
+          </div>
+          <div className="mb-3" style={{ width: "50%" }}>
+            <label className="form-label">Phone Number</label>
+            <input type="text" className="form-control"
+            onChange={(e)=>setPhone(e.target.value)
+            } />
+          </div>
           <div>
-            <label class="form-label">Gender </label>
-            <div class="form-check">
+            <label className="form-label">Gender </label>
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-1"
                 id="inlineRadio1"
                 value="Male"
+                onChange={(e)=>setGender(e.target.value)
+                }
               />
-              <label class="form-check-label" for="inlineRadio1">
+              <label className="form-check-label" htmlFor="inlineRadio1">
                 Male
               </label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-1"
                 id="inlineRadio2"
                 value="Female"
+                onChange={(e)=>setGender(e.target.value)
+                }
               />
-              <label class="form-check-label" for="inlineRadio2">
+              <label className="form-check-label" htmlFor="inlineRadio2">
                 Female
               </label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-1"
                 id="inlineRadio3"
                 value="Other"
+                onChange={(e)=>setGender(e.target.value)
+                }
               />
-              <label class="form-check-label" for="inlineRadio3">
+              <label className="form-check-label" htmlFor="inlineRadio3">
                 Other
               </label>
             </div>
           </div>
 
           <div>
-            <label class="form-label">Blood Group </label>
-            <div class="form-check">
+            <label className="form-label">Blood Group </label>
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-2"
                 id="inlineRadio4"
                 value="A+"
               />
-              <label class="form-check-label" for="inlineRadio4">
+              <label className="form-check-label" htmlFor="inlineRadio4">
                 A+
               </label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-2"
                 id="inlineRadio5"
                 value="B+"
+                onChange={(e)=>setBloodgroup(e.target.value)
+                }
               />
-              <label class="form-check-label" for="inlineRadio5">
+              <label className="form-check-label" htmlFor="inlineRadio5">
                 B+
               </label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-2"
                 id="inlineRadio6"
                 value="AB+"
+                onChange={(e)=>setBloodgroup(e.target.value)
+                }
               />
-              <label class="form-check-label" for="inlineRadio6">
+              <label className="form-check-label" htmlFor="inlineRadio6">
                 AB+
               </label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-2"
                 id="inlineRadio7"
                 value="A-"
+                onChange={(e)=>setBloodgroup(e.target.value)
+                }
               />
-              <label class="form-check-label" for="inlineRadio7">
+              <label className="form-check-label" htmlFor="inlineRadio7">
                 A-
               </label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-2"
                 id="inlineRadio8"
                 value="B-"
+                onChange={(e)=>setBloodgroup(e.target.value)
+                }
               />
-              <label class="form-check-label" for="inlineRadio8">
+              <label className="form-check-label" htmlFor="inlineRadio8">
                 B-
               </label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-2"
                 id="inlineRadio9"
                 value="AB-"
+                onChange={(e)=>setBloodgroup(e.target.value)
+                }
               />
-              <label class="form-check-label" for="inlineRadio9">
+              <label className="form-check-label" htmlFor="inlineRadio9">
                 AB-
               </label>
             </div>
 
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-2"
                 id="inlineRadio10"
                 value="O+"
+                onChange={(e)=>setBloodgroup(e.target.value)
+                }
               />
-              <label class="form-check-label" for="inlineRadio10">
+              <label className="form-check-label" htmlFor="inlineRadio10">
                 O+
               </label>
             </div>
 
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-2"
                 id="inlineRadio11"
                 value="O-"
               />
-              <label class="form-check-label" for="inlineRadio11">
+              <label className="form-check-label" htmlFor="inlineRadio11">
                 O-
               </label>
             </div>
           </div>
 
-          <div class="mb-3">
-            <label class="form-label">Date of Birth</label>
-            <input type="text" class="form-control" style={{ width: "50%" }} />
+          <div className="mb-3">
+            <label className="form-label">Date of Birth</label>
+            <input type="text" className="form-control" style={{ width: "50%" }} 
+            onChange={(e)=>setDob(e.target.value)}
+            />
           </div>
 
-          <div class="mb-3">
-            <label class="form-label">Age of mother at the childbirth </label>
+          <div className="mb-3">
+            <label className="form-label">Age of mother at the childbirth </label>
             <input
               type="Number"
-              class="form-control"
+              className="form-control"
               style={{ width: "50%" }}
+              onChange={(e)=>setAgeofmother(e.target.value)
+              }
             />
           </div>
 
           <div>
-            <label class="form-label">Place of Delivery </label>
-            <div class="form-check">
+            <label className="form-label">Place of Delivery </label>
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-3"
                 value="District Hospital"
+                onChange={(e)=>setPlaceofdelivery(e.target.value)
+                }
               />
-              <label class="form-check-label">District Hospital</label>
+              <label className="form-check-label">District Hospital</label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-3"
                 value="Primary Health Center"
+                onChange={(e)=>setPlaceofdelivery(e.target.value)
+                }
               />
-              <label class="form-check-label">Primary Health Center</label>
+              <label className="form-check-label">Primary Health Center</label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-3"
                 value="Secondary Health Center"
+                onChange={(e)=>setPlaceofdelivery(e.target.value)
+                }
               />
-              <label class="form-check-label">Secondary Health Center</label>
+              <label className="form-check-label">Secondary Health Center</label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-3"
                 value="Private hospital / Nursing Home"
+                onChange={(e)=>setPlaceofdelivery(e.target.value)
+                }
               />
-              <label class="form-check-label">
+              <label className="form-check-label">
                 Private hospital / Nursing Home
               </label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-3"
                 value="Home"
+                onChange={(e)=>setPlaceofdelivery(e.target.value)
+                }
               />
-              <label class="form-check-label">Home</label>
+              <label className="form-check-label">Home</label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-3"
                 value="Other"
+                onChange={(e)=>setPlaceofdelivery(e.target.value)
+                }
               />
-              <label class="form-check-label">Other</label>
+              <label className="form-check-label">Other</label>
             </div>
           </div>
 
           <div>
-            <label class="form-label">Was the child born </label>
-            <div class="form-check">
+            <label className="form-label">Was the child born </label>
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-4"
                 value="Pre Term (delivery before 37 weeks)"
+                onChange={(e)=>setChildstatus(e.target.value)}
               />
-              <label class="form-check-label">
+              <label className="form-check-label">
                 Pre Term (delivery before 37 weeks)
               </label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-4"
                 value="Full Term (normal birth is about 40 weeks or 280 days)"
+                onChange={(e)=>setChildstatus(e.target.value)}
               />
-              <label class="form-check-label">
+              <label className="form-check-label">
                 Full Term (normal birth is about 40 weeks or 280 days)
               </label>
             </div>
           </div>
 
           <div>
-            <label class="form-label">Type of Delivery </label>
-            <div class="form-check">
+            <label className="form-label">Type of Delivery </label>
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-5"
                 value="Normal Delivery"
+                onChange={(e)=>setdelivery(e.target.value)
+                }
               />
-              <label class="form-check-label">Normal Delivery</label>
+              <label className="form-check-label">Normal Delivery</label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-5"
                 value="Scheduled Caesarean"
+                onChange={(e)=>setdelivery(e.target.value)
+                }
               />
-              <label class="form-check-label">Scheduled Caesarean</label>
+              <label className="form-check-label">Scheduled Caesarean</label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-5"
                 value="Un-planned Caesarean"
+                onChange={(e)=>setdelivery(e.target.value)
+                }
               />
-              <label class="form-check-label">Un-planned Caesarean</label>
+              <label className="form-check-label">Un-planned Caesarean</label>
             </div>
           </div>
 
           <div>
-            <label class="form-label">Exposed to any </label>
-            <div class="form-check">
+            <label className="form-label">Exposed to any </label>
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-6"
                 value="Toxic(consumption of alcohol, tobacco)"
+                onChange={(e)=>setExposed(e.target.value)
+                }
               />
-              <label class="form-check-label">
+              <label className="form-check-label">
                 Toxic(consumption of alcohol, tobacco)
               </label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-6"
                 value="Stress"
+                onChange={(e)=>setExposed(e.target.value)
+                }
               />
-              <label class="form-check-label">Stress</label>
+              <label className="form-check-label">Stress</label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-6"
                 value="Prolonged physical exercise"
+                onChange={(e)=>setExposed(e.target.value)
+                }
               />
-              <label class="form-check-label">
+              <label className="form-check-label">
                 Prolonged physical exercise
               </label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-6"
                 value="Not exposed"
+                onChange={(e)=>setExposed(e.target.value)
+                }
               />
-              <label class="form-check-label">Not exposed</label>
+              <label className="form-check-label">Not exposed</label>
             </div>
           </div>
 
           <div>
-            <label class="form-label">Did the mother have any infection/ disease during pregnancy </label>
-            <div class="form-check">
+            <label className="form-label">Did the mother have any infection/ disease during pregnancy </label>
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-7"
                 value="Yes"
+                onChange={(e)=>setMi(e.target.value)
+                }
               />
-              <label class="form-check-label">
+              <label className="form-check-label">
               Yes
               </label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-7"
                 value="No"
+                onChange={(e)=>setMi(e.target.value)
+                }
               />
-              <label class="form-check-label">No</label>
+              <label className="form-check-label">No</label>
             </div>
           </div>
 
-          <div class="mb-3">
-            <label class="form-label">Weight of child during birth</label>
-            <input type="Number" class="form-control" style={{ width: "50%" }} />
+          <div className="mb-3">
+            <label className="form-label">Weight of child during birth</label>
+            <input type="Number" className="form-control" style={{ width: "50%" }} 
+            onChange={(e)=>setWeight(e.target.value)
+            }
+            />
           </div>
 
 
-          <div class="mb-3">
-            <label class="form-label">When was the child breast feed</label>
-            <input type="text" class="form-control" style={{ width: "50%" }} />
+          <div className="mb-3">
+            <label className="form-label">When was the child breast feed</label>
+            <input type="text" className="form-control" style={{ width: "50%" }} 
+            onChange={(e)=>setBreastfeed(e.target.value)
+            }
+            />
           </div>
 
-          <div class="mb-3">
-            <label class="form-label">How long was the child breast feed</label>
-            <input type="text" class="form-control" style={{ width: "50%" }} />
+          <div className="mb-3">
+            <label className="form-label">How long was the child breast feed</label>
+            <input type="text" className="form-control" style={{ width: "50%" }} 
+            onChange={(e)=>setHowlong(e.target.value)
+            }
+            />
           </div>
 
           <div>
-            <label class="form-label"> Was the child admitted in NICU (Neonatal Intensive Care Unit)after delivery? </label>
-            <div class="form-check">
+            <label className="form-label"> Was the child admitted in NICU (Neonatal Intensive Care Unit)after delivery? </label>
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-8"
                 value="Yes"
+                onChange={(e)=>setNicu(e.target.value)
+                }
               />
-              <label class="form-check-label">
+              <label className="form-check-label">
               Yes
               </label>
             </div>
-            <div class="form-check">
+            <div className="form-check">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="radio"
                 name="group-8"
                 value="No"
+                onChange={(e)=>setNicu(e.target.value)
+                }
               />
-              <label class="form-check-label">No</label>
+              <label className="form-check-label">No</label>
+            </div>
+          </div>
+          <div className="row g-3">
+            <div className="col-12">
+              <label htmlFor="inputAddress" className="form-label">
+                Address1
+              </label>
+              <input
+                style={{ width: "50%" }}
+                type="text"
+                className="form-control"
+                id="inputAddress"
+                placeholder=""
+                onChange={(e)=>setAddress1(e.target.value)
+                }
+              />
+            </div>
+            <div className="col-12">
+              <label htmlFor="inputAddress2" className="form-label">
+                Address 2
+              </label>
+              <input
+                style={{ width: "50%" }}
+                type="text"
+                className="form-control"
+                id="inputAddress2"
+                placeholder=""
+                onChange={(e)=>setAddress2(e.target.value)
+                }
+              />
+            </div>
+            <div className="col-md-6">
+              <label htmlFor="inputCity" className="form-label">
+                City
+              </label>
+              <input type="text" className="form-control" id="inputCity"
+               onChange={(e)=>setCity(e.target.value)
+               } />
+            </div>
+            <div className="col-md-4">
+              <label htmlFor="inputState" className="form-label">
+                State
+              </label>
+              <input type="text" className="form-control" id="inputCity" 
+              onChange={(e)=>setState(e.target.value)
+              }/>
+            </div>
+            <div className="col-md-2">
+              <label htmlFor="inputZip" className="form-label">
+                Pin Code
+              </label>
+              <input type="text" className="form-control" id="inputZip" onChange={(e)=>setPincode(e.target.value)
+               }/>
             </div>
           </div>
 
-
-          <button type="submit" class="btn btn-primary">
-            Save
+          <button type="submit" className="btn btn-primary my-4">
+            Submit
           </button>
         </form>
       </div>
