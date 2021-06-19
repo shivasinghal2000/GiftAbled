@@ -11,10 +11,10 @@ import Admin_login from "./components/Admin_login.js";
 import User_login from "./components/User_login.js";
 
 function App() {
-  
+
   return (
     <div className="App">
-     
+        
         <Router>
           <Switch>
           <Route exact path="/">
