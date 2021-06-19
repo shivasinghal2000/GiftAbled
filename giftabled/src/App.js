@@ -9,38 +9,41 @@ import Home from "./components/Home.js";
 import Dashboard from "./components/Dashboard.js";
 import Admin_login from "./components/Admin_login.js";
 import User_login from "./components/User_login.js";
-
+import Navbar_admin from "./components/Navbar_admin.js";
+import { useEffect, useState } from "react";
+import Notification from "./components/Notification.js";
 function App() {
-
+  const [user, setUser] = useState(auth.currentUser);
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+    });
+    return unsubscribe;
+  }, []);
   return (
     <div className="App">
-        
+      {user ? (
         <Router>
+          <Navbar_admin/>
           <Switch>
-          <Route exact path="/">
+            <Route exact path="/">
               <Home />
             </Route>
-            <Route exact path="/user/profile">
-              <Profile />
-            </Route>
-            <Route exact path="/user/disabilitytracker">
-              <Disabilitytrackerform />
-            </Route>
-            <Route exact path="/user/Resources">
-              <Resources />
-            </Route>
-            <Route exact path="/user">
-                <User_login/>
-            </Route>
-            <Route exact path="/admin">
-                <Admin_login/>
-            </Route>
             <Route exact path="/admin/dashboard">
-                <Dashboard/>
+              <Dashboard />
             </Route>
-
+            <Route exact path="/admin/notification">
+              <Notification/>
+            </Route>
           </Switch>
         </Router>
+      ) : (
+        <Admin_login />
+      )}
     </div>
   );
 }
