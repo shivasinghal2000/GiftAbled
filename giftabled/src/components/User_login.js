@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 import firebase from "./firebase";
 import Button from "react-bootstrap/Button";
 import { Redirect, useHistory } from "react-router-dom";
-
+import "./User_login.css"
 export default class User_login extends Component {
   handleChange = (e) =>{
     const {name, value } = e.target
@@ -65,7 +65,8 @@ export default class User_login extends Component {
   
   render() {
     return (
-      <div>
+      <div className="container whole_page">
+      <div className="container login_form">
         <h2>Login Form</h2>
         <form onSubmit={this.onSignInSubmit}>
           <div id="sign-in-button"></div>
@@ -78,6 +79,7 @@ export default class User_login extends Component {
           <input type="number" name="otp" placeholder="OTP Number" required onChange={this.handleChange}/>
           <button type="submit">Submit</button>
         </form>
+      </div>
       </div>
     )
   }

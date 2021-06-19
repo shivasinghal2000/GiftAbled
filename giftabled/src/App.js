@@ -1,5 +1,4 @@
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
-import { db, auth } from "./components/firebase";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Resources from "./components/Resources.js";
