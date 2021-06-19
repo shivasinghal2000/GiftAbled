@@ -1,5 +1,4 @@
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
-import { db, auth } from "./util/firebase";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Resources from "./components/Resources.js";
@@ -9,9 +8,9 @@ import Home from "./components/Home.js";
 import Dashboard from "./components/Dashboard.js";
 import Admin_login from "./components/Admin_login.js";
 import User_login from "./components/User_login.js";
+import React,{setState} from 'react';
 
 function App() {
-
   return (
     <div className="App">
         
