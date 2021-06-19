@@ -9,12 +9,48 @@ import Home from "./components/Home.js";
 import Dashboard from "./components/Dashboard.js";
 import Admin_login from "./components/Admin_login.js";
 import User_login from "./components/User_login.js";
+import { useTranslation } from 'react-i18next';
+import { useEffect, useState } from 'react'
 
 function App() {
+  const {t, i18n} = useTranslation();
+  const {language, setLanguage} = useState(true)
+  /*
+    Languages: 'en': English, 'hi': Hindi, 'kn': Kannada
+  */
+ useEffect(() => {
+   db.collection("Users").onSnapshot((snapshot) => {
+    //console.log(snapshot.docs.map(doc => doc.data()))
+    //setItems(snapshot.docs.map(doc => doc.data()))
+   })
+ }, [])
+
+ const method = async(e) => {
+  const users = db.collection('admin');
+  const snapshot = await users.get();
+  snapshot.forEach(doc => {
+    console.log(doc.data())
+    if(doc.data().username === "jahanvi"){
+      console.log("Worked")
+    }
+  })
+ }
+
+  const changeLang = (e) => {
+    //console.log("clicked")
+    if(language){
+      i18n.changeLanguage("en")
+    }
+    else{
+      i18n.changeLanguage("hi")
+    }
+    setLanguage(false)
+  }
   
   return (
     <div className="App">
-     
+        <button onClick = {e => changeLang(e, "hi")}>Click me</button>
+        <p>{t('Hi friends')}</p>
         <Router>
           <Switch>
           <Route exact path="/">
