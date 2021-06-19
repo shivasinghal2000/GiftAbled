@@ -1,6 +1,19 @@
-import React, { useState } from "react";
+import React, { useState,useEffect} from "react";
+import { db } from "../util/firebase";
 
 function Profile() {
+    const [profile,setProfile]=useState();
+    useEffect(() => {
+        let isSubscribed = true;
+        db.collection("profile").onSnapshot((snap) => {
+          const list = snap.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          setProfile(list);
+          return () => (isSubscribed = false);
+        });
+      }, []);
     const [name,setName]=useState();
     const [parent,setParent]=useState();
     const [relation,setRelation]=useState();
@@ -25,6 +38,13 @@ function Profile() {
     const [pincode,setPincode]=useState();
     function Adddata(e)
     {   e.preventDefault();
+
+        // db.collection("profile").add({
+        //     name,parent,relation,phone,gender,bloodgroup,dob,ageofmother,placeofdelivery,childstatus,exposed,delivery,mi,weight,breastfeed,nicu,address1,address2,city,state,pincode
+        // })
+        db.collection("profile").add({
+            name,parent,relation,phone,gender,bloodgroup,dob,placeofdelivery,childstatus,exposed,delivery,mi,weight,breastfeed,nicu,address1,address2,city,state,pincode,ageofmother
+        })
         console.log(name,parent,relation,phone,gender,bloodgroup,dob,ageofmother,placeofdelivery,childstatus,exposed,delivery,mi,weight,breastfeed,nicu,address1,address2,city,state,pincode)
     }
   return (
@@ -111,6 +131,8 @@ function Profile() {
                 name="group-2"
                 id="inlineRadio4"
                 value="A+"
+                onChange={(e)=>setBloodgroup(e.target.value)
+                }
               />
               <label className="form-check-label" htmlFor="inlineRadio4">
                 A+
@@ -209,6 +231,8 @@ function Profile() {
                 name="group-2"
                 id="inlineRadio11"
                 value="O-"
+                onChange={(e)=>setBloodgroup(e.target.value)
+                }
               />
               <label className="form-check-label" htmlFor="inlineRadio11">
                 O-
