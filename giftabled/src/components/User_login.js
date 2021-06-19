@@ -5,9 +5,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import firebase from "./firebase";
 import Button from "react-bootstrap/Button";
+import { Redirect, useHistory } from "react-router-dom";
 
 export default class User_login extends Component {
-  
   handleChange = (e) =>{
     const {name, value } = e.target
     this.setState({
@@ -41,6 +41,7 @@ export default class User_login extends Component {
         }).catch((error) => {
           // Error; SMS not sent
           // ...
+          console.log(error);
           console.log("SMS not sent")
         });
   }
@@ -51,14 +52,17 @@ export default class User_login extends Component {
     window.confirmationResult.confirm(code).then((result) => {
       // User signed in successfully.
       const user = result.user;
+      // this.props.checkall(user);
       console.log(JSON.stringify(user))
-      alert("User is verified")
+      alert("User is verified");
+      window.location.replace('/url/profile')
       // ...
     }).catch((error) => {
       // User couldn't sign in (bad verification code?)
       // ...
     });
   }
+  
   render() {
     return (
       <div>
