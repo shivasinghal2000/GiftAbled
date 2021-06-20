@@ -45,7 +45,7 @@ function Userpage() {
       });
   }
   return (
-    <div className="container">
+    <div className="container" >
       {user ? (
         <Router>
           <Navbar_user />
@@ -66,12 +66,12 @@ function Userpage() {
           </Switch>
         </Router>
       ) : (
-        <>
+        <div style={{background: "linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c)", alignItems:"center", marginTop:"7rem"}}>
           <div
             className="mb-3 d-flex justify-content-center my-3"
-            style={{ width: "30%" }}
+            style={{ width: "60%" }}
           >
-            <label for="exampleInputPassword1" className="form-label">
+            <label for="exampleInputPassword1" className="form-label" style={{marginLeft:"20%",fontWeight:"900",fontSize:"40px", marginTop:"10%",marginLeft:"40%",letterSpacing:"0.3em",fontFamily:"cursive"}}>
               Enter phone Number
             </label>
             <input
@@ -79,18 +79,20 @@ function Userpage() {
               className="form-control"
               id="exampleInputPassword1"
               onChange={(e) => setPhone(e.target.value)}
+              style={{fontWeight:"900",marginTop:"10%",marginLeft:"30%",minWidth:"40%",fontFamily:"cursive"}}
             />
           </div>
           <label></label>
-          <div id="recaptcha"></div>
+          <div id="recaptcha" style={{marginLeft: "43%", marginBottom:"5%",fontSize:"30px",padding:"10px",paddingLeft:"20px",paddingRight:"20px"}}></div>
           <button
             type="button"
             className="btn btn-primary"
             onClick={phoneverify}
+            style={{marginLeft: "40%", marginBottom:"5%",fontSize:"30px",background:"black",padding:"10px",paddingLeft:"20px",paddingRight:"20px"}}
           >
             Click Me
           </button>
-        </>
+        </div>
       )}
     </div>
   );
