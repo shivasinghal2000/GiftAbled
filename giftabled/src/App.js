@@ -13,9 +13,8 @@ import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react'
 
 import React,{setState} from 'react';
+import {db} from "./components/firebase.js" 
 
-
-import { useEffect, useState } from "react";
 import Notification from "./components/Notification.js";
 import Adminpage from "./components/Adminpage.js";
 import Userpage from "./components/Userpage.js";

@@ -5,7 +5,7 @@ import Profile from "./Profile";
 import Resources from "./Resources";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./Home";
-import { firebase,auth } from "../util/firebase";
+import { firebase,auth } from "./firebase";
 function Userpage() {
   const [phone, setPhone] = useState();
   const [name, setName] = useState();

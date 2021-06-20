@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { auth, db } from "../util/firebase";
+import { auth, db } from "./firebase";
 function Admin_login() {
   const [type, setType] = useState(false);
   const [name, setName] = useState();

@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import firebase from "./firebase";
+import {firebase} from "./firebase";
 import Button from "react-bootstrap/Button";
 import { Redirect, useHistory } from "react-router-dom";
 import "./User_login.css"

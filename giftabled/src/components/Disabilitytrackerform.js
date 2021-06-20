@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { db } from "../util/firebase";
+import { db } from "./firebase";
 function Disabilitytrackerform() {
   const [disabletracker, setDisabletracker] = useState();
   useEffect(() => {
