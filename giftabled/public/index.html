@@ -27,7 +27,21 @@
     <title>React App</title>
   </head>
   <body>
+    <div id="google_translate_element"></div> 
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script type="text/javascript"> 
+      function googleTranslateElementInit() { 
+          new google.translate.TranslateElement(
+              {pageLanguage: 'en'}, 
+              'google_translate_element'
+          ); 
+      } 
+  </script> 
+    
+  <script type="text/javascript" src=
+"https://translate.google.com/translate_a/element.js?
+      cb=googleTranslateElementInit">
+  </script> 
     <div id="root"></div>
     <!--
       This HTML file is a template.
