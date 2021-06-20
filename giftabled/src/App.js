@@ -8,14 +8,55 @@ import Home from "./components/Home.js";
 import Dashboard from "./components/Dashboard.js";
 import Admin_login from "./components/Admin_login.js";
 import User_login from "./components/User_login.js";
+
+import { useTranslation } from 'react-i18next';
+import { useEffect, useState } from 'react'
+
 import React,{setState} from 'react';
+
 
 import { useEffect, useState } from "react";
 import Notification from "./components/Notification.js";
 import Adminpage from "./components/Adminpage.js";
 import Userpage from "./components/Userpage.js";
 function App() {
-  const [usertype, setUsertype] = useState(1);
+
+  const {t, i18n} = useTranslation();
+  const {language, setLanguage} = useState(true)
+  /*
+    Languages: 'en': English, 'hi': Hindi, 'kn': Kannada
+  */
+ useEffect(() => {
+   db.collection("Users").onSnapshot((snapshot) => {
+    //console.log(snapshot.docs.map(doc => doc.data()))
+    //setItems(snapshot.docs.map(doc => doc.data()))
+   })
+ }, [])
+
+ const method = async(e) => {
+  const users = db.collection('admin');
+  const snapshot = await users.get();
+  snapshot.forEach(doc => {
+    console.log(doc.data())
+    if(doc.data().username === "jahanvi"){
+      console.log("Worked")
+    }
+  })
+ }
+
+  const changeLang = (e) => {
+    //console.log("clicked")
+    if(language){
+      i18n.changeLanguage("en")
+    }
+    else{
+      i18n.changeLanguage("hi")
+    }
+    setLanguage(false)
+  }
+  
+  
+ const [usertype, setUsertype] = useState(1);
   function check()
   {
     switch(usertype){
