@@ -83,7 +83,7 @@ function Admin_login() {
     }
   }
   return (
-    <div>
+    <div style={{background: "linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c)", alignItems:"center", marginTop:"12rem"}}>
       <h1 className="d-flex justify-content-center">Admin Page</h1>
       <div className="container d-flex justify-content-center my-4">
         <form
