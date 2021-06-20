@@ -5,7 +5,7 @@ function Admin_login() {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [check, setCheck] = useState();
+  const [check, setCheck] = useState(false);
   useEffect(() => {
     let isSubscribed = true;
     db.collection("admin").onSnapshot((snap) => {
@@ -62,22 +62,18 @@ function Admin_login() {
         .where("password", "==", password)
         .get()
         .then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            setCheck(true);
-          });
-        }).then((event)=>{
-          if (check) {
-             auth
+          setCheck(true);
+          auth
               .signInWithEmailAndPassword(email, password)
               .then((value) => {
-                console.log("logged by" + name);
+                //console.log("logged by" + name);
               })
               .catch((error) => {
-                console.log(error);
+                //console.log(error);
+                alert("invalid credentials");
               });
-          } else {
-            alert("invalid credentials");
-          }
+            //console.log(check);
+            //console.log(querySnapshot+"xyz");
         })
         .catch((error) => {
           console.log("Error getting documents: ", error);

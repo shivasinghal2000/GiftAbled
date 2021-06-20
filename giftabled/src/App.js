@@ -9,41 +9,59 @@ import Home from "./components/Home.js";
 import Dashboard from "./components/Dashboard.js";
 import Admin_login from "./components/Admin_login.js";
 import User_login from "./components/User_login.js";
-import Navbar_admin from "./components/Navbar_admin.js";
+
 import { useEffect, useState } from "react";
 import Notification from "./components/Notification.js";
+import Adminpage from "./components/Adminpage.js";
+import Userpage from "./components/Userpage.js";
 function App() {
-  const [user, setUser] = useState(auth.currentUser);
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser(null);
-      }
-    });
-    return unsubscribe;
-  }, []);
+  const [usertype, setUsertype] = useState(1);
+  function check()
+  {
+    switch(usertype){
+      case 1:return (
+        <div className="container mt-5">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text">
+                User Should Enter OTP to login
+              </p>
+              <button  class="btn btn-primary" onClick={(e)=>{
+                setUsertype(3)
+              }}>
+                  User OTP
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text">
+                Admin Page
+              </p>
+              <button  class="btn btn-primary" onClick={(e)=>{
+                setUsertype(2)
+              }}>
+                  Admin Login
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      );
+      case 2:return(<Adminpage /> ) ;
+      case 3:return(<Userpage />) ;
+    }
+  }
   return (
     <div className="App">
-      {user ? (
-        <Router>
-          <Navbar_admin/>
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/admin/dashboard">
-              <Dashboard />
-            </Route>
-            <Route exact path="/admin/notification">
-              <Notification/>
-            </Route>
-          </Switch>
-        </Router>
-      ) : (
-        <Admin_login />
-      )}
+      {
+        check()
+      }
     </div>
   );
 }

@@ -1,19 +1,22 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { db } from "../util/firebase";
 function Disabilitytrackerform() {
-    const [disabletracker,setDisabletracker]=useState();
-    useEffect(() => {
-        let isSubscribed = true;
-        db.collection("disabletracker").onSnapshot((snap) => {
-          const list = snap.docs.map((doc) => ({
-            id: doc.id,
-            ...doc.data(),
-          }));
-          setDisabletracker(list);
-          return () => (isSubscribed = false);
-        });
-      }, []);
-
+  const [disabletracker, setDisabletracker] = useState();
+  useEffect(() => {
+    let isSubscribed = true;
+    db.collection("disabletracker").onSnapshot((snap) => {
+      const list = snap.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setDisabletracker(list);
+      return () => (isSubscribed = false);
+    });
+  }, []);
+ //date
+ var today = new Date();
+var str = today.toGMTString();
+ //states
   const [parentName, setParentName] = useState();
   const [relationship, setRelationship] = useState();
   const [phone, setPhone] = useState();
@@ -27,20 +30,30 @@ function Disabilitytrackerform() {
   const [limp, setLimp] = useState();
   const [short, setShort] = useState();
   function ImageUrl(e) {
-      let reader = new FileReader();
-      reader.readAsDataURL(e.target.files[0]);
-      reader.onload = () => {
-        var filecontent = reader.result;
-        setPhoto(filecontent);
-      };
-      console.log(photo);
-    }
-  function Adddata(e)
-  {
-      e.preventDefault();
-      db.collection("disabletracker").add({
-        parentName,relationship,phone,updates,height,weight,color,eyes,fit,limp,short
-      })
+    let reader = new FileReader();
+    reader.readAsDataURL(e.target.files[0]);
+    reader.onload = () => {
+      var filecontent = reader.result;
+      setPhoto(filecontent);
+    };
+    console.log(photo);
+  }
+  function Adddata(e) {
+    e.preventDefault();
+    db.collection("disabletracker").add({
+      parentName,
+      relationship,
+      phone,
+      updates,
+      height,
+      weight,
+      color,
+      eyes,
+      fit,
+      limp,
+      short,
+      date:str
+    });
   }
   return (
     <div className="container-fluid">
@@ -51,7 +64,7 @@ function Disabilitytrackerform() {
             <label className="form-label">Name of the parent</label>
             <input
               type="text"
-            //   value={parentName}
+              //   value={parentName}
               className="form-control"
               onChange={(e) => setParentName(e.target.value)}
             />
@@ -101,14 +114,17 @@ function Disabilitytrackerform() {
               onChange={(e) => setWeight(e.target.value)}
             />
           </div>
-          <div className="input-group mb-3 my-3" style={{ width: "50%" }}>
-            <input type="file" className="form-control" id="inputGroupFile02"
-            onChange={(e)=>ImageUrl(e.target.value)}
-             />
+          {/* <div className="input-group mb-3 my-3" style={{ width: "50%" }}>
+            <input
+              type="file"
+              className="form-control"
+              id="inputGroupFile02"
+              onChange={(e) => ImageUrl(e.target.value)}
+            />
             <label className="input-group-text" htmlFor="inputGroupFile02">
               Upload Current Photo
             </label>
-          </div>
+          </div> */}
           <br />
 
           <div>
@@ -120,8 +136,7 @@ function Disabilitytrackerform() {
                 type="radio"
                 name="group-disab-1"
                 value="Yes"
-                onChange={(e)=>setColor(e.target.value)
-                }
+                onChange={(e) => setColor(e.target.value)}
               />
               <label className="form-check-label">Yes</label>
             </div>
@@ -131,7 +146,7 @@ function Disabilitytrackerform() {
                 type="radio"
                 name="group-disab-1"
                 value="No"
-                onChange={(e)=>setColor(e.target.value)}
+                onChange={(e) => setColor(e.target.value)}
               />
               <label className="form-check-label">No</label>
             </div>
@@ -146,9 +161,7 @@ function Disabilitytrackerform() {
                 type="radio"
                 name="group-disab-2"
                 value="Yes"
-                onChange={(e)=>setEyes(e.target.value)
-                }
-    
+                onChange={(e) => setEyes(e.target.value)}
               />
               <label className="form-check-label">Yes</label>
             </div>
@@ -158,8 +171,7 @@ function Disabilitytrackerform() {
                 type="radio"
                 name="group-disab-2"
                 value="No"
-                onChange={(e)=>setEyes(e.target.value)
-                }
+                onChange={(e) => setEyes(e.target.value)}
               />
               <label className="form-check-label">No</label>
             </div>
@@ -174,9 +186,7 @@ function Disabilitytrackerform() {
                 type="radio"
                 name="group-disab-3"
                 value="Yes"
-                onChange={(e)=>setFit(e.target.value)
-                }
-    
+                onChange={(e) => setFit(e.target.value)}
               />
               <label className="form-check-label">Yes</label>
             </div>
@@ -186,8 +196,7 @@ function Disabilitytrackerform() {
                 type="radio"
                 name="group-disab-3"
                 value="No"
-                onChange={(e)=>setFit(e.target.value)
-                }
+                onChange={(e) => setFit(e.target.value)}
               />
               <label className="form-check-label">No</label>
             </div>
@@ -202,8 +211,7 @@ function Disabilitytrackerform() {
                 type="radio"
                 name="group-disab-4"
                 value="Yes"
-                onChange={(e)=>setLimp(e.target.value)
-                }
+                onChange={(e) => setLimp(e.target.value)}
               />
               <label className="form-check-label">Yes</label>
             </div>
@@ -213,8 +221,7 @@ function Disabilitytrackerform() {
                 type="radio"
                 name="group-disab-4"
                 value="No"
-                onChange={(e)=>setLimp(e.target.value)
-                }
+                onChange={(e) => setLimp(e.target.value)}
               />
               <label className="form-check-label">No</label>
             </div>
@@ -229,8 +236,7 @@ function Disabilitytrackerform() {
                 type="radio"
                 name="group-disab-5"
                 value="Yes"
-                onChange={(e)=>setShort(e.target.value)
-                }
+                onChange={(e) => setShort(e.target.value)}
               />
               <label className="form-check-label">Yes</label>
             </div>
@@ -240,8 +246,7 @@ function Disabilitytrackerform() {
                 type="radio"
                 name="group-disab-5"
                 value="No"
-                onChange={(e)=>setShort(e.target.value)
-                }
+                onChange={(e) => setShort(e.target.value)}
               />
               <label className="form-check-label">No</label>
             </div>

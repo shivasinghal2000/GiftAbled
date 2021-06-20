@@ -1,5 +1,5 @@
 import React, { useState,useEffect} from "react";
-import { db } from "../util/firebase";
+import { db,auth } from "../util/firebase";
 
 function Profile() {
     const [profile,setProfile]=useState();
@@ -43,7 +43,8 @@ function Profile() {
         //     name,parent,relation,phone,gender,bloodgroup,dob,ageofmother,placeofdelivery,childstatus,exposed,delivery,mi,weight,breastfeed,nicu,address1,address2,city,state,pincode
         // })
         db.collection("profile").add({
-            name,parent,relation,phone,gender,bloodgroup,dob,placeofdelivery,childstatus,exposed,delivery,mi,weight,breastfeed,nicu,address1,address2,city,state,pincode,ageofmother
+            name,parent,relation,phone,gender,bloodgroup,dob,placeofdelivery,childstatus,exposed,delivery,mi,weight,breastfeed,nicu,address1,address2,city,state,pincode,ageofmother,
+            userId: auth.currentUser.uid
         })
         console.log(name,parent,relation,phone,gender,bloodgroup,dob,ageofmother,placeofdelivery,childstatus,exposed,delivery,mi,weight,breastfeed,nicu,address1,address2,city,state,pincode)
     }
@@ -62,7 +63,7 @@ function Profile() {
           </div>
           <div className="mb-3" style={{ width: "50%" }}>
             <label className="form-label">Name of the parent</label>
-            <input type="text" className="form-control" onChange={(e)=>setParent(e.target.value)
+            <input type="text" className="form-control"  onChange={e=>setParent(e.target.value)
             }/>
           </div>
           <div className="mb-3" style={{ width: "50%" }}>
