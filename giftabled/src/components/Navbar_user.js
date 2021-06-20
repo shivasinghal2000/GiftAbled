@@ -1,6 +1,8 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { auth } from '../util/firebase';
 function Navbar_user() {
+    
     return (
         <div className="container">
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -22,18 +24,25 @@ function Navbar_user() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/user/profile">
+                <Link className="nav-link" to="/user/profile">
                   Profile
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/user/disabilitytracker">
-                  Disability Tracker Form
+                <Link className="nav-link" to="/user/Disabilitytrackerform">
+                Disabilitytrackerform
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/user/Resources">
-                  Resources
+                <Link className="nav-link" to="/user/resouces">
+                        Resources
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/user/Resources" onClick={(e)=>{
+                    auth.signOut();
+                }}>
+                    SignOut
                 </Link>
               </li>
             </ul>
