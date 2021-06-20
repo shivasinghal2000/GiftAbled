@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import {auth} from '../util/firebase'
+import {auth} from './firebase'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Navbar_admin from "./Navbar_admin.js";
 import Admin_login from "./Admin_login.js";
