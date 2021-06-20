@@ -1,0 +1,22 @@
+@media all and (min-width: 480px) {
+  .Login {
+    padding: 60px 0;
+  }
+.whole_page{
+    background-image: linear-gradient(to right, rgb(224, 174, 182) , rgb(68, 68, 236));
+}
+  .login_form {
+      width: 50%;
+    height: 30%;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px #888888;
+    max-width: 320px;
+    background-image: linear-gradient(to right, red , yellow);
+  }
+  
+}
