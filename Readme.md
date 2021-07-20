@@ -1,0 +1,1 @@
+It is a web based application designed to help NGO to send alerts to it's users who are differently abled to fill their current health status so that NGO can connect with doctors and provide them proper facilities. It was built using ReactJS and Firebase. It also provide dashboard facility.
